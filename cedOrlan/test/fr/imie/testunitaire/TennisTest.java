@@ -77,5 +77,21 @@ public class TennisTest {
 		assertEquals("Egalité", jeu.score());		
 	}
 	
+	@Test
+	public void testAvantage(){		
+		Joueur joueur1 = new Joueur();
+		Joueur joueur2 = new Joueur();
+		Jeu jeu = new Jeu(joueur1, joueur2);
+		joueur1.scored();
+		joueur1.scored();
+		joueur2.scored();
+		joueur2.scored();
+		joueur1.scored();
+		joueur2.scored();
+		joueur1.scored();
+		assertEquals("Avantage-joueur1", jeu.score());
+		
+	}
+	
 
 }
