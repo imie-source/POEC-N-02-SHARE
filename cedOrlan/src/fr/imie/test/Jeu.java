@@ -17,6 +17,7 @@ public class Jeu {
 	
 	
 	public String score() {
+		String score;
 		
 		int scoreJoueur1 = joueurs.get(0).getScore();
 		int scoreJoueur2 = joueurs.get(1).getScore();
@@ -39,10 +40,14 @@ public class Jeu {
 		}
 		if(scoreJoueur2 == 3){
 			scoreJoueur2 = 40;
-		}		
+		}
 		
+		score = scoreJoueur1+"-"+scoreJoueur2;
 		System.out.println(scoreJoueur1+"-"+scoreJoueur2);
-		String score = scoreJoueur1+"-"+scoreJoueur2;
+		if(scoreJoueur1 == 40 && scoreJoueur2 == 40){
+			score="Egalité";
+		}
+		
 		return score;
 	}
 	

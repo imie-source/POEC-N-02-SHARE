@@ -42,5 +42,40 @@ public class TennisTest {
 		joueur2.scored();
 		assertEquals("15-15", jeu.score());		
 	}
+	@Test
+	public void testMemeJoueurMarquePoint2(){
+		Joueur joueur1 = new Joueur();
+		Joueur joueur2 = new Joueur();
+		Jeu jeu = new Jeu(joueur1, joueur2);
+		joueur1.scored();
+		joueur2.scored();
+		joueur2.scored();
+		assertEquals("15-30", jeu.score());		
+	}
+	@Test
+	public void testMemeJoueurMarquePoint3(){
+		Joueur joueur1 = new Joueur();
+		Joueur joueur2 = new Joueur();
+		Jeu jeu = new Jeu(joueur1, joueur2);
+		joueur1.scored();
+		joueur1.scored();
+		joueur2.scored();
+		joueur2.scored();
+		assertEquals("30-30", jeu.score());		
+	}
+	@Test
+	public void testMemeJoueurMarquePoint4(){
+		Joueur joueur1 = new Joueur();
+		Joueur joueur2 = new Joueur();
+		Jeu jeu = new Jeu(joueur1, joueur2);
+		joueur1.scored();
+		joueur1.scored();
+		joueur2.scored();
+		joueur2.scored();
+		joueur1.scored();
+		joueur2.scored();
+		assertEquals("Egalité", jeu.score());		
+	}
+	
 
 }
