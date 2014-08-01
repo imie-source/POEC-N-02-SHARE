@@ -14,11 +14,17 @@ public class Joueur {
 		return this.score;
 	}
 
+<<<<<<< HEAD
+
+
+	
+=======
 	public int scored(){
 		this.score+=1;
 		
 		return this.score;
 		
 	}
+>>>>>>> afd35bd461c25ba95c3175c1e5fd9c78e96baad2
 	
 }
