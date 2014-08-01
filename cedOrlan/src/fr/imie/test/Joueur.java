@@ -1,11 +1,23 @@
 package fr.imie.test;
 
 public class Joueur {
-
-	public String scored(Jeu jeu){
-		String score = "15-0";
+	
+	private int score;
+	
+	public Joueur(){
+		this.score = 0;
 		
-		return  score;
+	}
+	
+	
+	public int getScore(){
+		return this.score;
+	}
+
+	public int scored(){
+		this.score+=1;
+		
+		return this.score;
 		
 	}
 	

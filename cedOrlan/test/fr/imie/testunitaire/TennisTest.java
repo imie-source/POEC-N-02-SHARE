@@ -11,30 +11,35 @@ public class TennisTest {
 
 	@Test
 	public void testInitialisationNouveauJeu() {
-		new Jeu();
+		Joueur joueur1 = new Joueur();
+		Joueur joueur2 = new Joueur();
+		new Jeu(joueur1, joueur2);
 	}
 	
 	@Test
 	public void testAfficherScoreDebutDePartie() {
-		Jeu jeu = new Jeu();
+		Joueur joueur1 = new Joueur();
+		Joueur joueur2 = new Joueur();
+		Jeu jeu = new Jeu(joueur1, joueur2);
 		assertEquals("0-0", jeu.score());
 	}
 	
 	@Test
 	public void testJoueurMarquePoint(){
-		Jeu jeu = new Jeu();
-		Joueur joueur = new Joueur();
-		joueur.scored(jeu);
-		assertEquals("15-0", joueur.scored(jeu));		
+		Joueur joueur1 = new Joueur();
+		Joueur joueur2 = new Joueur();
+		Jeu jeu = new Jeu(joueur1, joueur2);
+		joueur1.scored();
+		assertEquals("15-0", jeu.score());		
 	}
 	
 	@Test
 	public void testMemeJoueurMarquePoint(){
-		Jeu jeu = new Jeu();
 		Joueur joueur1 = new Joueur();
 		Joueur joueur2 = new Joueur();
-		joueur1.scored(jeu);
-		joueur2.scored(jeu);
+		Jeu jeu = new Jeu(joueur1, joueur2);
+		joueur1.scored();
+		joueur2.scored();
 		assertEquals("15-15", jeu.score());		
 	}
 
