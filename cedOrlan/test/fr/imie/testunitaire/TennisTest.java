@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fr.imie.tennis.Jeu;
+import fr.imie.test.Jeu;
 
 public class TennisTest {
 
