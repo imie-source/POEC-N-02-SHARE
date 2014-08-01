@@ -31,9 +31,11 @@ public class TennisTest {
 	@Test
 	public void testMemeJoueurMarquePoint(){
 		Jeu jeu = new Jeu();
-		Joueur joueur = new Joueur();
-		joueur.scored(jeu);
-		assertEquals("30-0", joueur.scored(jeu));		
+		Joueur joueur1 = new Joueur();
+		Joueur joueur2 = new Joueur();
+		joueur1.scored(jeu);
+		joueur2.scored(jeu);
+		assertEquals("15-15", jeu.score());		
 	}
 
 }
