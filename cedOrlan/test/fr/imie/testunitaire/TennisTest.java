@@ -20,16 +20,20 @@ public class TennisTest {
 		assertEquals("0-0", jeu.score());
 	}
 	
-	
-	// j'ai rectifier aussi car scored prend un jeu en param ^^
 	@Test
 	public void testJoueurMarquePoint(){
 		Jeu jeu = new Jeu();
 		Joueur joueur = new Joueur();
 		joueur.scored(jeu);
-		assertEquals("15-0", joueur.scored(jeu));
-
-		
+		assertEquals("15-0", joueur.scored(jeu));		
+	}
+	
+	@Test
+	public void testMemeJoueurMarquePoint(){
+		Jeu jeu = new Jeu();
+		Joueur joueur = new Joueur();
+		joueur.scored(jeu);
+		assertEquals("30-0", joueur.scored(jeu));		
 	}
 
 }
