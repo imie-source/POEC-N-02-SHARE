@@ -18,5 +18,13 @@ public class TennisTest {
 		Jeu jeu = new Jeu();
 		assertEquals("0-0", jeu.score());
 	}
+	public void testJoueurMarquePoint(){
+		Jeu jeu = new Jeu();
+		Joueur joueur = new Joueur();
+		joueur.scored();
+		assertEquals("15-0", joueur.scored());
+
+		
+	}
 
 }
