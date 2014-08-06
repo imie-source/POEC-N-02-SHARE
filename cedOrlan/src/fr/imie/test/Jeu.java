@@ -1,9 +1,30 @@
 package fr.imie.test;
 
+import java.beans.Transient;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+public class Jeu implements Serializable{
+	
+	static private final long serialVersionUID = 6L;
+	
+	private transient ISerialiser serialiser = new Serialiser();
 
-public class Jeu {
+	public ISerialiser getSerialiser() {
+		return this.serialiser;
+	}
+
+
+	public void setSerialiser(ISerialiser serialiser) {
+		this.serialiser = serialiser;
+	}
+
+
 
 	private List<Joueur> joueurs = new ArrayList();
 	
@@ -51,7 +72,52 @@ public class Jeu {
 		return score;
 	}
 	
+	public void save(){
+		serialiser.persist(this, "jeux.serial");
+		/*
+		ObjectOutputStream oos = null;
+		FileOutputStream fichier;
+		try {
+			fichier = new FileOutputStream("jeux.serial");
+			oos = new ObjectOutputStream(fichier);
+			oos.writeObject(jeu);
+			oos.flush();
+			oos.close();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		*/
+	}
+	
+	public Jeu load(){
+		return serialiser.read("jeux.serial");
+		
+		/*
+		ObjectInputStream ois = null;
+		FileInputStream fichier;
+		Jeu retour;
+		try {
+			fichier = new FileInputStream("jeux.serial");
+			ois = new ObjectInputStream(fichier);
+			retour = (Jeu) ois.readObject();
+			ois.close();
+		} catch (IOException | ClassNotFoundException e) {
+			throw new RuntimeException(e);
+		}
+		return retour;
+		*/
+	}
+	
 
 
+	public void reset(Jeu jeu){
 
+
+		jeu.joueurs.get(0).setScore(0);
+		jeu.joueurs.get(1).setScore(0);
+
+	}
 }
+
+
+
