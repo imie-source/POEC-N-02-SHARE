@@ -2,6 +2,10 @@ package fr.imie.test;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
+@SessionScoped
+@Named("joueur")
 public class Joueur implements Serializable{
 	
 	static private final long serialVersionUID = 6L;

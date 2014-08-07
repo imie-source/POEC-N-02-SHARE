@@ -1,19 +1,31 @@
 package fr.imie.test;
 
-import java.beans.Transient;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+@SessionScoped
 public class Jeu implements Serializable{
 	
 	static private final long serialVersionUID = 6L;
 	
-	private transient ISerialiser serialiser = new Serialiser();
+	@Inject @Named("serialiser")
+	private transient ISerialiser serialiser;
+	private Joueur joueur1;
+	private Joueur joueur2;
+	private List<Joueur> joueurs = new ArrayList();
+
+	public Jeu() {
+		super();
+		joueur1 = new Joueur();
+		joueur2 = new Joueur();
+		this.joueurs.add(this.joueur1);
+		this.joueurs.add(this.joueur2);
+	}
+
 
 	public ISerialiser getSerialiser() {
 		return this.serialiser;
@@ -26,7 +38,7 @@ public class Jeu implements Serializable{
 
 
 
-	private List<Joueur> joueurs = new ArrayList();
+	
 	
 	
 	

@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import javax.inject.Named;
+@Named("serialiser")
 public class Serialiser implements ISerialiser {
 	/* (non-Javadoc)
 	 * @see fr.imie.test.ISerialiser#persist(fr.imie.test.Jeu, java.lang.String)
