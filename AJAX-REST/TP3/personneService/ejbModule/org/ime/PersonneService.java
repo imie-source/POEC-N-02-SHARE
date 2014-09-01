@@ -49,4 +49,13 @@ public class PersonneService implements PersonneServiceLocal {
 		
 	}
 
+	@Override
+	public Personne update(Personne personneToUpdate) {
+		Personne personne =entityManager.find(Personne.class, personneToUpdate.getId());
+		personne.setPrenom(personneToUpdate.getPrenom());
+		personne.setNom(personneToUpdate.getNom());
+		personne.setDatenaiss(personneToUpdate.getDatenaiss());
+		return personne;
+	}
+
 }

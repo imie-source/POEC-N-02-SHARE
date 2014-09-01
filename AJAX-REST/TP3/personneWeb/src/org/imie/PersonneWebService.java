@@ -11,6 +11,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -44,6 +45,14 @@ public class PersonneWebService {
 	@POST
 	public Response insertPersonne(Personne personne){
 		Personne retour = personneService.insertPersonne(personne);
+		return Response.ok(retour).build();
+	}
+	
+	@PUT
+	@Path("/{id}")
+	public Response updatePersonne(Personne personne,@PathParam("id") Integer id){
+		personne.setId(id);
+		Personne retour = personneService.update(personne);
 		return Response.ok(retour).build();
 	}
 	

@@ -16,4 +16,6 @@ public interface PersonneServiceLocal {
 
 	public void deletePersonne(Integer id);
 
+	public Personne update(Personne personne);
+
 }
